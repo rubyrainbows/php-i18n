@@ -1,0 +1,25 @@
+{
+    "name": "rubyrainbows/php-i18n",
+    "description": "An i18n library for PHP",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "homepage": "https://github.com/rubyrainbows/php-i18n",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Thomas Muntaner",
+            "email": "thomas.muntaner@rubyrainbows.com"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.20",
+        "mockery/mockery": "0.9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "RubyRainbows": "lib/"
+        }
+    }
+}
