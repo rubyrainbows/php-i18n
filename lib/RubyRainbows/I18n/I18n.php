@@ -20,4 +20,10 @@ namespace RubyRainbows\I18n;
  */
 class I18n
 {
+    private $directory;
+
+    public function __construct ( $directory )
+    {
+        $this->directory = $directory;
+    }
 }
