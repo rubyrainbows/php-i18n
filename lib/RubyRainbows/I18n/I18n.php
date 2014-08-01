@@ -20,10 +20,35 @@ namespace RubyRainbows\I18n;
  */
 class I18n
 {
+    private static $instance = null;
+
     private $directory;
 
-    public function __construct ( $directory )
+    private function __construct ()
     {
-        $this->directory = $directory;
+    }
+
+    /**
+     * Returns an instance of the I18n class
+     * 
+     * @return I18n
+     */
+    public static function getInstance ()
+    {
+        if ( self::$instance == null )
+            self::$instance = new I18n();
+
+        return self::$instance;
+    }
+
+    /**
+     * Sets up the I18n class
+     * 
+     * @param  array $params setup parameters
+     */
+    public function setup ( $params = [] )
+    {
+        if ( array_key_exists( 'directory', $params ) )
+            $this->directory = $params['directory'];
     }
 }
