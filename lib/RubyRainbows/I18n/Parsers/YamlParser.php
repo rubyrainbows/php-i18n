@@ -24,26 +24,11 @@ use Symfony\Component\Yaml\Exception\ParseException;
  */
 class YamlParser
 {
-    private static $instance = null;
-
     private $parser;
 
-    private function __construct ()
+    public function __construct ()
     {
         $this->parser = new Parser();
-    }
-
-    /**
-     * Gets the instance of the parser
-     * 
-     * @return Parser The instance of the parser
-     */
-    public static function getInstance ()
-    {
-        if ( self::$instance == null )
-            self::$instance = new YamlParser();
-
-        return self::$instance;
     }
 
     /**

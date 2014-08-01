@@ -10,7 +10,7 @@ class YamlParserTest extends TestCase
     {
         parent::setUp();
 
-        $this->parser = Parser::getInstance();
+        $this->parser = new Parser();
     }
 
     public function testParse ()

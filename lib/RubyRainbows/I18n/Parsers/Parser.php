@@ -10,8 +10,6 @@
 
 namespace RubyRainbows\I18n\Parsers;
 
-use Symfony\Component\Yaml\Exception\ParseException;
-
 /**
  * Class Parser
  *
@@ -23,13 +21,6 @@ use Symfony\Component\Yaml\Exception\ParseException;
  */
 abstact class Parser
 {
-    /**
-     * Gets the instance of the parser
-     * 
-     * @return Parser The instance of the parser
-     */
-    public static function getInstance ();
-
     /**
      * Parses a file into a php array
      * 

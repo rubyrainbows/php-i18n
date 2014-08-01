@@ -20,35 +20,25 @@ namespace RubyRainbows\I18n;
  */
 class I18n
 {
-    private static $instance = null;
-
     private $directory;
+    private $finder;
 
-    private function __construct ()
+    public function __construct ( $directory )
     {
+        $this->directory    = $directory;
+        $this->finder       = new Finder ( $this->directory );
     }
 
     /**
-     * Returns an instance of the I18n class
+     * Gets the localzied string from the finder
      * 
-     * @return I18n
-     */
-    public static function getInstance ()
-    {
-        if ( self::$instance == null )
-            self::$instance = new I18n();
-
-        return self::$instance;
-    }
-
-    /**
-     * Sets up the I18n class
+     * @param  string $locale
+     * @param  string $key
      * 
-     * @param  array $params setup parameters
+     * @return string
      */
-    public function setup ( $params = [] )
+    public function get ( $locale, $key )
     {
-        if ( array_key_exists( 'directory', $params ) )
-            $this->directory = $params['directory'];
+        return $this->finder->get( $locale, $key );
     }
 }

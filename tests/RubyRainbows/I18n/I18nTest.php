@@ -4,17 +4,24 @@ use RubyRainbows\I18n\I18n as Lang;
 
 class I18nTest extends TestCase
 {
-    private $parser;
+    private $lang;
 
     public function setUp ()
     {
         parent::setUp();
 
-        $this->lang = Lang::getInstance();
+        $this->lang = new Lang( $this->fixturesPath . '/lang' );
     }
 
-    public function testGetInstance ()
+    public function testGet ()
     {
-        $this->assertNotNull( $this->lang );
+        $this->assertEquals( 'foo', $this->lang->get( 'en', 'bar.bar' ) );
+    }
+
+    public function testGetWithKeyNotExisting ()
+    {
+        $this->assertEquals( '', $this->lang->get( 'en', 'bar.bar.foo' ) );
+        $this->assertEquals( '', $this->lang->get( 'en', 'bar-foo' ) );
+        $this->assertEquals( '', $this->lang->get( 'en', '' ) );
     }
 }
