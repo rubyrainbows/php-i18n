@@ -1,5 +1,5 @@
-[![Latest Stable Version](https://poser.pugx.org/leaphly/cart-bundle/version.svg)](https://packagist.org/packages/leaphly/cart-bundle)
-[![Total Downloads](https://poser.pugx.org/rubyrainbows/cache/downloads.svg)](https://packagist.org/packages/rubyrainbows/cache)
+[![Latest Stable Version](https://poser.pugx.org/rubyrainbows/i18n/version.svg)](https://packagist.org/packages/rubyrainbows/i18n)
+[![Total Downloads](https://poser.pugx.org/rubyrainbows/i18n/downloads.svg)](https://packagist.org/packages/rubyrainbows/i18n)
 [![Build Status](https://travis-ci.org/rubyrainbows/php-i18n.svg?branch=v1.0.1)](https://travis-ci.org/rubyrainbows/php-i18n)
 
 # PHP I18n
@@ -8,7 +8,7 @@ PHP I18n is a simple library for storing localized strings outside of your code.
 
 ## Installing
 
-Add the following to your composer.json file.
+Add the following require to your composer.json file.
 
 ```json
 {
@@ -46,4 +46,4 @@ $lang->get( $locale, 'example.foo' );
 $lang->get( $locale, 'example.nested.foo' );
 ```
 
-**Note:** *The first part of the key is file.*
+**Note:** *The first part of the key is the file that contains the translations (example.yml => example).*
