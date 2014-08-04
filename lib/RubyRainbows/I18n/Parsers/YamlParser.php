@@ -45,7 +45,7 @@ class YamlParser
         }
         catch ( ParseException $e )
         {
-            printf( "Unable to parse the YAML string: %s", $e->getMessage() );
+            throw new ParserException( $e );
         }
     }
 }

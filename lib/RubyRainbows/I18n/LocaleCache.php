@@ -62,9 +62,9 @@ class LocaleCache
 
         foreach ( $files as $file )
         {
-            $data = $this->parser->parse( $file->readFile() );
-            $data = [ $this->getInitialKey( $file ) => $data ];
-            $cache = array_merge( $cache, $data );
+            $data   = $this->parser->parse( $file->readFile() );
+            $data   = [ $this->getInitialKey( $file ) => $data ];
+            $cache  = array_merge( $cache, $data );
         }
 
         $this->cache[$locale] = $cache;
