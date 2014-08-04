@@ -1,10 +1,10 @@
 {
-    "name": "rubyrainbows/php-i18n",
+    "name": "rubyrainbows/i18n",
     "description": "An i18n library for PHP",
     "minimum-stability": "stable",
     "license": "MIT",
     "homepage": "https://github.com/rubyrainbows/php-i18n",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Thomas Muntaner",
