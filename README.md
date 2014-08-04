@@ -1,7 +1,5 @@
 [![Latest Stable Version](https://poser.pugx.org/leaphly/cart-bundle/version.svg)](https://packagist.org/packages/leaphly/cart-bundle)
-
 [![Total Downloads](https://poser.pugx.org/rubyrainbows/cache/downloads.svg)](https://packagist.org/packages/rubyrainbows/cache)
-
 [![Build Status](https://travis-ci.org/rubyrainbows/php-i18n.svg?branch=v1.0.1)](https://travis-ci.org/rubyrainbows/php-i18n)
 
 # PHP I18n
