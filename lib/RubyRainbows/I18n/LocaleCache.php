@@ -11,8 +11,8 @@
 namespace RubyRainbows\I18n;
 
 use RubyRainbows\I18n\Parsers\YamlParser    as Parser;
-use RubyRainbows\I18n\Core\IO\Directory     as Directory;
-use RubyRainbows\I18n\Core\IO\File          as File;
+use RubyRainbows\IO\Directory               as Directory;
+use RubyRainbows\IO\File                    as File;
 
 /**
  * Class LocaleCache
