@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "license": "MIT",
     "homepage": "https://github.com/rubyrainbows/php-i18n",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Thomas Muntaner",
@@ -12,11 +12,11 @@
         }
     ],
     "require": {
+        "symfony/yaml": "2.5.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.0.20",
-        "mockery/mockery": "0.9.1",
-        "symfony/yaml": "2.5.2"
+        "mockery/mockery": "0.9.1"
     },
     "autoload": {
         "psr-4": {
