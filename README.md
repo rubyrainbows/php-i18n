@@ -42,7 +42,7 @@ $lang = new Lang( dirname(__FILE__) . '/config/lang' );
 
 For this example, the language folder is at config/lang.  
 
-Create a file config/lang/en/example.yml
+Create a file `config/lang/en/example.yml`
 
 ```yaml
 foo: bar
