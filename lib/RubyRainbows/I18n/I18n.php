@@ -22,11 +22,13 @@ class I18n
 {
     private $directory;
     private $finder;
+    private $cleaner;
 
     public function __construct ( $directory )
     {
         $this->directory    = $directory;
-        $this->finder       = new Finder ( $this->directory );
+        $this->finder       = new Finder( $this->directory );
+        $this->cleaner      = new Cleaner();
     }
 
     /**
@@ -37,8 +39,10 @@ class I18n
      * 
      * @return string
      */
-    public function get ( $locale, $key )
+    public function get ( $locale, $key, $vars=[] )
     {
-        return $this->finder->get( $locale, $key );
+        $translation = $this->finder->get( $locale, $key );
+
+        return $this->cleaner->clean( $translation, $vars );
     }
 }

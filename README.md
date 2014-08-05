@@ -30,6 +30,7 @@ Create a file config/lang/en/example.yml
 foo: bar
 nested:
   foo: bar
+var: foo :var
 ```
 
 Now we can load the translation class and get our translated string.
@@ -42,8 +43,21 @@ use RubyRainbows\I18n\I18n as Lang;
 $lang   = new Lang( 'config/lang' );
 $locale = 'en';
 
-$lang->get( $locale, 'example.foo' );
-$lang->get( $locale, 'example.nested.foo' );
+/**
+ * normal translated string
+ */
+$lang->get( $locale, 'example.foo' ); // returns 'bar'
+
+
+/**
+ * nested translated strings
+ */
+$lang->get( $locale, 'example.nested.foo' ); // returns 'bar'
+
+/**
+ * Variable translated string
+ */
+$lang->get( $locale, 'example.var', ['var' => 'bar']); // returns 'foo bar'
 ```
 
 **Note:** *The first part of the key is the file that contains the translations (example.yml => example).*

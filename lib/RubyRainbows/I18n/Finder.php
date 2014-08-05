@@ -38,18 +38,28 @@ class Finder
     public function get ( $locale, $key )
     {
         $data = $this->cache->get( $locale );
+
+        return $this->find( $data, $key );
+    }
+
+    /**
+     * Finds the item in the array from the key
+     * 
+     * @param  array $data
+     * @param  array $keys
+     * 
+     * @return string
+     */
+    private function find ( $data, $key )
+    {
         $keys = explode( '.', $key );
 
         foreach ( $keys as $key )
         {
             if ( is_array( $data ) && array_key_exists( $key, $data ) )
-            {
                 $data = $data[$key];
-            }
             else
-            {
                 return '';
-            }
         }
 
         return $data;
