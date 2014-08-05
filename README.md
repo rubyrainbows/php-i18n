@@ -51,7 +51,9 @@ nested:
 var: foo :var
 ```
 
-*Take note of the yml file name as it will be the first part of your key (example.yml => example)*
+**Note:** *Take note of the yml file name as it will be the first part of your key (example.yml => example).*
+
+
 Now we can load the translation class and get our translated string.
 
 ```php
