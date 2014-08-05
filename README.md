@@ -20,9 +20,27 @@ Add the following require to your composer.json file.
 
 ## Setup
 
+### Language Folder
+
+In order to use i18n, you will need a language folder.  By convention this folder is `config/lang`, however, you can choose whichever you want.  In this folder, each supported language requires its own folder (`config/lang/en`, `config/lang/de`, ...). 
+
+### Use in PHP
+
+You will most likely be using the I18n class in your own implementation, so you are just given a class which you can write a wrapper class for in your own code.  All you need to do to create this class is give it the path to the language folder you decided on before.
+
+```php
+<?php
+
+use RubyRainbows\I18n\I18n as Lang;
+
+$lang = new Lang( dirname(__FILE__) . '/config/lang' );
+```
+
+## Example Usage
+
 **Notice:** *Currently, only yaml files are supported.*
 
-For this example, the language directory is stored at config/lang.  This directory contains language folders that hold the translations files.
+For this example, the language folder is at config/lang.  
 
 Create a file config/lang/en/example.yml
 
@@ -40,7 +58,7 @@ Now we can load the translation class and get our translated string.
 
 use RubyRainbows\I18n\I18n as Lang;
 
-$lang   = new Lang( 'config/lang' );
+$lang   = new Lang( dirname(__FILE__) . 'config/lang' );
 $locale = 'en';
 
 /**
