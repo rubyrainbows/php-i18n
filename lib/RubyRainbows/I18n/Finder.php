@@ -33,7 +33,7 @@ class Finder
      * @param  string $locale
      * @param  string $key
      * 
-     * @return string
+     * @return mixed
      */
     public function get ( $locale, $key )
     {
@@ -48,7 +48,7 @@ class Finder
      * @param  array $data
      * @param  array $keys
      * 
-     * @return string
+     * @return mixed
      */
     private function find ( $data, $key )
     {

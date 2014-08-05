@@ -10,12 +10,16 @@ class I18nTest extends TestCase
     {
         parent::setUp();
 
-        $this->lang = new Lang( $this->fixturesPath . '/lang' );
+        $this->lang = new Lang( $this->fixturesPath . '/locales' );
     }
 
     public function testGet ()
     {
-        $this->assertEquals( 'foo', $this->lang->get( 'en', 'bar.bar' ) );
+        $this->assertEquals( 'bar', $this->lang->get( 'en', 'single.foo' ) );
+        $this->assertEquals( 'foo bar', $this->lang->get( 'en', 'nested.foo.bar' ) );
+        $this->assertEquals( 'foo bar', $this->lang->get( 'en', 'var.foo', ['var' => 'bar'] ) );
+        $this->assertEquals( 'foo bar', $this->lang->get( 'en', 'plural.foo', [], 1 ) );
+        $this->assertEquals( 'foo bars', $this->lang->get( 'en', 'plural.foo', [], 2 ) );
     }
 
     public function testGetWithKeyNotExisting ()

@@ -22,7 +22,7 @@ Add the following require to your composer.json file.
 
 ### Language Folder
 
-In order to use i18n, you will need a language folder.  By convention this folder is `config/lang`, however, you can choose whichever you want.  In this folder, each supported language requires its own folder (`config/lang/en`, `config/lang/de`, ...). 
+In order to use i18n, you will need a language folder.  By convention this folder is `config/locales`, however, you can choose whichever you want.  In this folder, each supported language requires its own folder (`config/locales/en`, `config/locales/de`, ...). 
 
 ### Use in PHP
 
@@ -33,22 +33,25 @@ You will most likely be using the I18n class in your own implementation, so you 
 
 use RubyRainbows\I18n\I18n as Lang;
 
-$lang = new Lang( dirname(__FILE__) . '/config/lang' );
+$lang = new Lang( dirname(__FILE__) . '/config/locales' );
 ```
 
 ## Example Usage
 
 **Notice:** *Currently, only yaml files are supported.*
 
-For this example, the language folder is at config/lang.  
+For this example, the language folder is at config/locales.  
 
-Create a file `config/lang/en/example.yml`
+Create a file `config/locales/en/example.yml`
 
 ```yaml
 foo: bar
 nested:
   foo: bar
 var: foo :var
+plural:
+  one: A :color apple
+  other: :count :color apples
 ```
 
 **Note:** *Take note of the yml file name as it will be the first part of your key (example.yml => example).*
@@ -61,22 +64,41 @@ Now we can load the translation class and get our translated string.
 
 use RubyRainbows\I18n\I18n as Lang;
 
-$lang   = new Lang( dirname(__FILE__) . 'config/lang' );
+$lang   = new Lang( dirname(__FILE__) . 'config/locales' );
 $locale = 'en';
 
 /**
  * normal translated string
+ *
+ * @param string $locale
+ * @param string $key
  */
 $lang->get( $locale, 'example.foo' ); // returns 'bar'
 
 
 /**
  * nested translated strings
+ *
+ * @param string $locale
+ * @param string $key
  */
 $lang->get( $locale, 'example.nested.foo' ); // returns 'bar'
 
 /**
  * Variable translated string
+ *
+ * @param string $locale
+ * @param string $key
  */
 $lang->get( $locale, 'example.var', ['var' => 'bar']); // returns 'foo bar'
+
+/**
+ * Plural tranlated strings
+ *
+ * @param string $locale
+ * @param string $key
+ * @param int    $count
+ */
+$lang->get( $locale, 'example.plural', ['color' => 'red'], 1); // returns 'A red apple'
+$lang->get( $locale, 'example.plural', ['color' => 'red'], 2); // returns '2 red apples'
 ```

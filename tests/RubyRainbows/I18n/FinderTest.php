@@ -10,12 +10,12 @@ class FinderTest extends TestCase
     {
         parent::setUp();
 
-        $this->finder = new Finder( $this->fixturesPath . '/lang' );
+        $this->finder = new Finder( $this->fixturesPath . '/locales' );
     }
 
     public function testGet ()
     {
-        $this->assertEquals( 'foo', $this->finder->get( 'en', 'bar.bar' ) );
+        $this->assertEquals( 'bar', $this->finder->get( 'en', 'single.foo' ) );
     }
 
     public function testGetWithKeyNotExisting ()

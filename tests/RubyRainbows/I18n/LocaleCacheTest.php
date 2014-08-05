@@ -10,14 +10,16 @@ class LocaleCacheTest extends TestCase
     {
         parent::setUp();
 
-        $this->cache = new Cache( $this->fixturesPath . '/lang' );
+        $this->cache = new Cache( $this->fixturesPath . '/locales' );
     }
 
     public function testCache ()
     {
         $expected = [
-                    'bar' => ['bar' => 'foo'],
-                    'foo' => ['foo' => 'bar']
+                    'nested'    => ['foo' => ['bar' => 'foo bar']],
+                    'single'    => ['foo' => 'bar'],
+                    'plural'    => ['foo' => ['one' => 'foo bar', 'other' => 'foo bars']],
+                    'var'       => ['foo' => 'foo :var']
         ];
 
         $this->assertEquals( $expected, $this->cache->get( 'en' ) );

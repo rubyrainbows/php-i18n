@@ -39,10 +39,10 @@ class I18n
      * 
      * @return string
      */
-    public function get ( $locale, $key, $vars=[] )
+    public function get ( $locale, $key, $vars=[], $count=1 )
     {
         $translation = $this->finder->get( $locale, $key );
 
-        return $this->cleaner->clean( $translation, $vars );
+        return $this->cleaner->clean( $translation, $vars, $count );
     }
 }
