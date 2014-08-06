@@ -52,6 +52,15 @@ class I18n
         return $this->cleaner->clean( $translation, $vars, $count );
     }
 
+    /**
+     * Gets a translation from an array of locales, returning 
+     * the first one available
+     * 
+     * @param  array    $locales
+     * @param  string   $key
+     * 
+     * @return string
+     */
     private function getTranslation ( $locales, $key )
     {
         foreach ( $locales as $locale )
