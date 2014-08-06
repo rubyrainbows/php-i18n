@@ -54,6 +54,12 @@ plural:
   other: :count :color apples
 ```
 
+And a dialect file `config/locales/en_US/example.yml`
+
+```yaml
+foo: murica
+```
+
 **Note:** *Take note of the yml file name as it will be the first part of your key (example.yml => example).*
 
 
@@ -64,8 +70,7 @@ Now we can load the translation class and get our translated string.
 
 use RubyRainbows\I18n\I18n as Lang;
 
-$lang   = new Lang( dirname(__FILE__) . 'config/locales' );
-$locale = 'en';
+$lang = new Lang( dirname(__FILE__) . 'config/locales' );
 
 /**
  * normal translated string
@@ -73,7 +78,7 @@ $locale = 'en';
  * @param string $locale
  * @param string $key
  */
-$lang->get( $locale, 'example.foo' ); // returns 'bar'
+$lang->get( 'en', 'example.foo' ); // returns 'bar'
 
 
 /**
@@ -82,7 +87,7 @@ $lang->get( $locale, 'example.foo' ); // returns 'bar'
  * @param string $locale
  * @param string $key
  */
-$lang->get( $locale, 'example.nested.foo' ); // returns 'bar'
+$lang->get( 'en', 'example.nested.foo' ); // returns 'bar'
 
 /**
  * Variable translated string
@@ -90,7 +95,7 @@ $lang->get( $locale, 'example.nested.foo' ); // returns 'bar'
  * @param string $locale
  * @param string $key
  */
-$lang->get( $locale, 'example.var', ['var' => 'bar']); // returns 'foo bar'
+$lang->get( 'en', 'example.var', ['var' => 'bar']); // returns 'foo bar'
 
 /**
  * Plural tranlated strings
@@ -99,6 +104,12 @@ $lang->get( $locale, 'example.var', ['var' => 'bar']); // returns 'foo bar'
  * @param string $key
  * @param int    $count
  */
-$lang->get( $locale, 'example.plural', ['color' => 'red'], 1); // returns 'A red apple'
-$lang->get( $locale, 'example.plural', ['color' => 'red'], 2); // returns '2 red apples'
+$lang->get( 'en', 'example.plural', ['color' => 'red'], 1); // returns 'A red apple'
+$lang->get( 'en', 'example.plural', ['color' => 'red'], 2); // returns '2 red apples'
+
+/**
+ * Dialect translated strings
+ */
+$lang->get( 'en_US', 'example.foo' );         // returns 'murica'
+$lang->get( 'en_US', 'example.nested.foo' );  // returns 'bar' as it falls back to en
 ```

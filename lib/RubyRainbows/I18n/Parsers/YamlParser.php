@@ -45,7 +45,7 @@ class YamlParser
         }
         catch ( ParseException $e )
         {
-            throw new ParserException( $e );
+            return '';
         }
     }
 }

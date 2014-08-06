@@ -22,6 +22,12 @@ class I18nTest extends TestCase
         $this->assertEquals( 'foo bars', $this->lang->get( 'en', 'plural.foo', [], 2 ) );
     }
 
+    public function testGetWithDialect ()
+    {
+        $this->assertEquals( 'murica', $this->lang->get( 'en_US', 'single.foo' ) );
+        $this->assertEquals( 'foo bar', $this->lang->get( 'en_US', 'nested.foo.bar' ) ); // fallback to en
+    }
+
     public function testGetWithKeyNotExisting ()
     {
         $this->assertEquals( '', $this->lang->get( 'en', 'bar.bar.foo' ) );
