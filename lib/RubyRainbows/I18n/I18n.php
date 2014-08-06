@@ -41,18 +41,27 @@ class I18n
      */
     public function get ( $locale, $key, $vars=[], $count=1 )
     {
-        $translation    = '';
-        $position       = strpos( $locale, '_' );
+        $locales    = [$locale];
+        $position   = strpos( $locale, '_' );
 
         if ( $position !== false )
-        {
-            $translation    = $this->finder->get( $locale, $key );
-            $locale         = explode( '_', $locale )[0];
-        }
+            $locales[] = explode( '_', $locale )[0];
 
-        if ( $translation == '' )
-            $translation = $this->finder->get( $locale, $key );
+        $translation = $this->getTranslation( $locales, $key );
 
         return $this->cleaner->clean( $translation, $vars, $count );
+    }
+
+    private function getTranslation ( $locales, $key )
+    {
+        foreach ( $locales as $locale )
+        {
+            $translation = $this->finder->get( $locale, $key );
+
+            if ( $translation != '' )
+                return $translation;
+        }
+
+        return '';
     }
 }
