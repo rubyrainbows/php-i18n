@@ -46,7 +46,7 @@ class Finder
      * Finds the item in the array from the key
      * 
      * @param  array $data
-     * @param  array $keys
+     * @param  string $key
      * 
      * @return mixed
      */

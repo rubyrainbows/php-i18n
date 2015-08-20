@@ -24,8 +24,15 @@ use RubyRainbows\IO\File                    as File;
  */
 class LocaleCache
 {
-    private $cache          = null;
-    private $langDirectory  = null;
+    /**
+     * @var array
+     */
+    private $cache;
+
+    /**
+     * @var string
+     */
+    private $langDirectory;
 
     public function __construct ( $langDirectory )
     {
@@ -46,6 +53,9 @@ class LocaleCache
         if ( !array_key_exists( $locale, $this->cache ) )
             $this->build( $locale );
 
+        if ( !array_key_exists( $locale, $this->cache ) )
+            return '';
+
         return $this->cache[$locale];
     }
 
@@ -56,18 +66,25 @@ class LocaleCache
      */
     private function build ( $locale )
     {
-        $cache      = [];
-        $directory  = new Directory( $this->langDirectory . '/' . $locale );
-        $files      = $directory->getFiles();
-
-        foreach ( $files as $file )
+        try
         {
-            $data   = $this->parser->parse( $file->readFile() );
-            $data   = [ $this->getInitialKey( $file ) => $data ];
-            $cache  = array_merge( $cache, $data );
-        }
+            $cache      = [];
+            $directory  = new Directory( $this->langDirectory . '/' . $locale );
+            $files      = $directory->getFiles();
 
-        $this->cache[$locale] = $cache;
+            foreach ( $files as $file )
+            {
+                $data   = $this->parser->parse( $file->readFile() );
+                $data   = [ $this->getInitialKey( $file ) => $data ];
+                $cache  = array_merge( $cache, $data );
+            }
+
+            $this->cache[$locale] = $cache;
+        }
+        catch ( \Exception $e )
+        {
+            // folder doesn't exist, do nothing.
+        }
     }
 
     /**

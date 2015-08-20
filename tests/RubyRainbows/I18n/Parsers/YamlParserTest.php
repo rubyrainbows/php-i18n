@@ -1,16 +1,19 @@
 <?php
 
-use RubyRainbows\I18n\Parsers\YamlParser as Parser;
+use RubyRainbows\I18n\Parsers\YamlParser;
 
 class YamlParserTest extends TestCase
 {
+    /**
+     * @var YamlParser
+     */
     private $parser;
 
     public function setUp ()
     {
         parent::setUp();
 
-        $this->parser = new Parser();
+        $this->parser = new YamlParser();
     }
 
     public function testParse ()

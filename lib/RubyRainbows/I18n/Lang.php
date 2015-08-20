@@ -1,7 +1,7 @@
 <?php
 
 /**
- * I18n.php
+ * Lang.php
  *
  * @author    Thomas Muntaner thomas.muntaner@gmail.com
  * @copyright 2014 Thomas Muntaner
@@ -11,17 +11,28 @@
 namespace RubyRainbows\I18n;
 
 /**
- * Class I18n
+ * Class Lang
  *
  * The main class for the I18n module
  *
  * @package RubyRainbows\I18n
  * 
  */
-class I18n
+class Lang
 {
+    /**
+     * @var string
+     */
     private $directory;
+
+    /**
+     * @var Finder
+     */
     private $finder;
+
+    /**
+     * @var Cleaner
+     */
     private $cleaner;
 
     public function __construct ( $directory )
@@ -32,11 +43,13 @@ class I18n
     }
 
     /**
-     * Gets the localzied string from the finder
-     * 
+     * Gets the localized string from the finder
+     *
      * @param  string $locale
      * @param  string $key
-     * 
+     * @param array $vars
+     * @param int $count
+     *
      * @return string
      */
     public function get ( $locale, $key, $vars=[], $count=1 )

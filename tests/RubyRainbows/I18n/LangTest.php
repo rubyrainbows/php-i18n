@@ -1,8 +1,8 @@
 <?php
 
-use RubyRainbows\I18n\I18n as Lang;
+use RubyRainbows\I18n\Lang;
 
-class I18nTest extends TestCase
+class LangTest extends TestCase
 {
     private $lang;
 

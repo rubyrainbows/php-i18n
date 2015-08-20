@@ -13,7 +13,7 @@ Add the following require to your composer.json file.
 ```json
 {
     "require": {
-        "rubyrainbows/i18n": "1.0.*"
+        "rubyrainbows/i18n": "1.1.*"
     }
 }
 ```
@@ -31,7 +31,7 @@ You will most likely be using the I18n class in your own implementation, so you 
 ```php
 <?php
 
-use RubyRainbows\I18n\I18n as Lang;
+use RubyRainbows\I18n\Lang;
 
 $lang = new Lang( dirname(__FILE__) . '/config/locales' );
 ```
@@ -68,7 +68,7 @@ Now we can load the translation class and get our translated string.
 ```php
 <?php
 
-use RubyRainbows\I18n\I18n as Lang;
+use RubyRainbows\I18n\Lang;
 
 $lang = new Lang( dirname(__FILE__) . 'config/locales' );
 
@@ -98,7 +98,7 @@ $lang->get( 'en', 'example.nested.foo' ); // returns 'bar'
 $lang->get( 'en', 'example.var', ['var' => 'bar']); // returns 'foo bar'
 
 /**
- * Plural tranlated strings
+ * Plural translated strings
  *
  * @param string $locale
  * @param string $key

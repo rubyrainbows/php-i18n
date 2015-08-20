@@ -11,7 +11,6 @@
 namespace RubyRainbows\I18n\Parsers;
 
 use Symfony\Component\Yaml\Parser;
-use Symfony\Component\Yaml\Exception\ParseException;
 
 /**
  * Class YamlParser
@@ -22,8 +21,11 @@ use Symfony\Component\Yaml\Exception\ParseException;
  * @package RubyRainbows\I18n\Parsers
  * 
  */
-class YamlParser
+class YamlParser extends BaseParser
 {
+    /**
+     * @var Parser
+     */
     private $parser;
 
     public function __construct ()
@@ -43,9 +45,9 @@ class YamlParser
         {
             return $this->parser->parse( $file );
         }
-        catch ( ParseException $e )
+        catch ( \Exception $e )
         {
-            return '';
+            return [];
         }
     }
 }

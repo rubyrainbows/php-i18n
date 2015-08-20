@@ -1,16 +1,19 @@
 <?php
 
-use RubyRainbows\I18n\LocaleCache as Cache;
+use RubyRainbows\I18n\LocaleCache;
 
 class LocaleCacheTest extends TestCase
 {
+    /**
+     * @var LocaleCache
+     */
     private $cache;
 
     public function setUp ()
     {
         parent::setUp();
 
-        $this->cache = new Cache( $this->fixturesPath . '/locales' );
+        $this->cache = new LocaleCache( $this->fixturesPath . '/locales' );
     }
 
     public function testCache ()

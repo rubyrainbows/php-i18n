@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Parser.php
+ * BaseParser.php
  *
  * @author    Thomas Muntaner thomas.muntaner@gmail.com
  * @copyright 2014 Thomas Muntaner
@@ -11,7 +11,7 @@
 namespace RubyRainbows\I18n\Parsers;
 
 /**
- * Class Parser
+ * Class BaseParser
  *
  * This abstract class defines the interpretation
  * of locale files in different languages and formats
@@ -19,7 +19,7 @@ namespace RubyRainbows\I18n\Parsers;
  * @package RubyRainbows\I18n\Parsers
  * 
  */
-abstact class Parser
+abstract class BaseParser
 {
     /**
      * Parses a file into a php array
@@ -27,5 +27,5 @@ abstact class Parser
      * @param  string $file
      * @return array
      */
-    public function parse ( $file );
+    abstract function parse ( $file );
 }
