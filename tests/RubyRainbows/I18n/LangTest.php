@@ -4,6 +4,9 @@ use RubyRainbows\I18n\Lang;
 
 class LangTest extends TestCase
 {
+    /**
+     * @var Lang
+     */
     private $lang;
 
     public function setUp ()

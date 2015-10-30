@@ -1,6 +1,6 @@
 <?php
 
-use RubyRainbows\I18n\Finder;
+use RubyRainbows\I18n\Core\Finder;
 
 class FinderTest extends TestCase
 {

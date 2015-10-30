@@ -1,6 +1,6 @@
 <?php
 
-use RubyRainbows\I18n\LocaleCache;
+use RubyRainbows\I18n\Core\LocaleCache;
 
 class LocaleCacheTest extends TestCase
 {

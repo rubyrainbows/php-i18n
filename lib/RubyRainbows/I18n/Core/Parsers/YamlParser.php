@@ -8,7 +8,7 @@
  * @version   1.0.0
  */
 
-namespace RubyRainbows\I18n\Parsers;
+namespace RubyRainbows\I18n\Core\Parsers;
 
 use Symfony\Component\Yaml\Parser;
 
@@ -18,8 +18,8 @@ use Symfony\Component\Yaml\Parser;
  * This class interacts with the symfony yaml component
  * to read yaml locale files
  *
- * @package RubyRainbows\I18n\Parsers
- * 
+ * @package RubyRainbows\I18n\Core\Parsers
+ *
  */
 class YamlParser extends BaseParser
 {
@@ -35,15 +35,16 @@ class YamlParser extends BaseParser
 
     /**
      * Parses a yaml file into a php array
-     * 
-     * @param  string $file
+     *
+     * @param string $file
+     *
      * @return array
      */
     public function parse ( $file )
     {
         try
         {
-            return $this->parser->parse( $file );
+            return $this->parser->parse($file);
         }
         catch ( \Exception $e )
         {

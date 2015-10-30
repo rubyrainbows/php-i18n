@@ -1,10 +1,17 @@
 <?php
 
-use RubyRainbows\I18n\Cleaner as Cleaner;
+use RubyRainbows\I18n\Core\Cleaner;
 
 class CleanerTest extends TestCase
 {
+    /**
+     * @var Cleaner
+     */
     private $cleaner;
+
+    /**
+     * @var array
+     */
     private $plural;
 
     public function setUp ()

@@ -8,7 +8,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
     public function setUp ()
     {
-        $this->fixturesPath = dirname( __FILE__ ) . '/fixtures';
+        $this->fixturesPath = dirname(__FILE__) . '/fixtures';
     }
 
     public function tearDown ()
