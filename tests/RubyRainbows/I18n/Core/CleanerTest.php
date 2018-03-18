@@ -70,4 +70,11 @@ class CleanerTest extends TestCase
 
         $this->assertEquals( '10 red apples', $cleaned );
     }
+
+    public function testCleanArrayShouldReturnEmptyString ()
+    {
+        $cleaned = $this->cleaner->clean( ['foo', 'bar'], ['color' => 'red', 'foo' => 'bar'], 20 );
+
+        $this->assertEquals('', $cleaned);
+    }
 }
